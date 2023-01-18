@@ -21,7 +21,7 @@ const app = createApp({
           // 解構取出 token , expired(到期日)
           const { expired, token } = res.data;
           // 存取 cookie
-          document.cookie = `hexToken=${token} expires=${new Date(expired)}`;
+          document.cookie = `hexToken=${token}; expires=${new Date(expired)};`;
           // 轉網址到指定的頁面
           window.location = "products.html";
         })
