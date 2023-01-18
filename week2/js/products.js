@@ -9,6 +9,7 @@ const app = createApp({
       api_url: "https://vue3-course-api.hexschool.io/v2/",
       api_path: "asher_api",
       products: [],
+      tempProduct: {},
     };
   },
   methods: {
