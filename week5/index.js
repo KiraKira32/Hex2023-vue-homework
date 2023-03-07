@@ -66,6 +66,9 @@ const app = Vue.createApp({
       cart: {},
       cartStatus: false,
       loadingItem: "", // 存 id
+      loadingStatus: {
+        isLoading: "",
+      },
       // 表單驗證內容
       user: {},
       message: "",
@@ -89,6 +92,7 @@ const app = Vue.createApp({
     // 加入購物車 (產品名稱, 數量) /v2/api/{api_path}/cart
     addToCart(product_id, qty = 1) {
       // 當沒有傳入參數時，會使用預設值
+      // this.loadingStatus.isLoading = id;
       const data = {
         product_id,
         qty,
