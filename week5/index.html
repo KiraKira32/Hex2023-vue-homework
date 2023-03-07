@@ -54,11 +54,10 @@
               <td>
                 <div class="btn-group btn-group-sm">
                   <button type="button" class="btn btn-outline-secondary" @click="openModal(product.id)">
-                    <i class="fas fa-spinner fa-pulse"></i>
                     查看更多
                   </button>
                   <button type=" button" class="btn btn-outline-danger" @click="addToCart(product.id)">
-                    <i class="fas fa-spinner fa-pulse"></i>
+                    <i v-if="loadingItem === product.id " class="fas fa-spinner fa-pulse"></i>
                     加到購物車
                   </button>
                 </div>
@@ -86,8 +85,8 @@
                 <td>
                   <button type="button" class="btn btn-outline-danger btn-sm" :disabled=" item.id === loadingItem"
                     @click="deleteProductNum(item)">
-                    <i class="fas fa-spinner fa-pulse"></i>
-                    x
+                    <i v-if="loadingItem === item.id " class="fas fa-spinner fa-pulse"></i>
+                    刪除
                   </button>
                 </td>
                 <td>

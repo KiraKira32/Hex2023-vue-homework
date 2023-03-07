@@ -34,7 +34,6 @@ const productModal = {
         axios
           .get(`${apiUrl}/v2/api/${apiPath}/product/${this.id}`)
           .then((res) => {
-            console.log("單一產品", res.data.product);
             this.tempProduct = res.data.product;
             this.modal.show();
           })
@@ -66,7 +65,7 @@ const app = Vue.createApp({
       productId: "",
       cart: {},
       cartStatus: false,
-      loadingItem: false, // 存 id
+      loadingItem: "", // 存 id
       // 表單驗證內容
       user: {},
       message: "",
@@ -86,7 +85,6 @@ const app = Vue.createApp({
     // 打開商品的詳細資料
     openModal(id) {
       this.productId = id;
-      console.log("外層帶入 product:", id);
     },
     // 加入購物車 (產品名稱, 數量) /v2/api/{api_path}/cart
     addToCart(product_id, qty = 1) {
@@ -167,28 +165,7 @@ const app = Vue.createApp({
         ? true
         : "需要正確的電話號碼,範例: 0978197878";
     },
-    // 送出訂單資訊
-    // onSubmit() {
-    //   const data = {
-    //     user: this.user,
-    //     message: this.message,
-    //   };
-    //   if (this.cart.carts.lenght === 0) {
-    //     alert("請先加商品加入購物車");
-    //     return;
-    //   }
-    //   axios
-    //     .post(`${apiUrl}/v2/api/${apiPath}/order`, { data })
-    //     .then((res) => {
-    //       alert(res.data.message);
-    //       this.$refs.form.resetForm();
-    //       this.message = "";
-    //       this.getCarts();
-    //     })
-    //     .catch((err) => {
-    //       alert("錯誤");
-    //     });
-    // },
+    // 送出訂單
     onSubmit() {
       const data = {
         user: {
@@ -228,6 +205,5 @@ const app = Vue.createApp({
 app.component("VForm", VeeValidate.Form);
 app.component("VField", VeeValidate.Field);
 app.component("ErrorMessage", VeeValidate.ErrorMessage);
-// app.component("loading", VueLoading.Component);
 
 app.mount("#app");
