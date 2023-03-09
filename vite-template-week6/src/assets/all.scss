@@ -1,0 +1,10 @@
+// 自定義樣式匯入
+
+// 1. 匯入 Bootstrap 取出functions
+@import 'bootstrap/scss/functions';
+// 2. 匯入 自定義的變數
+@import './variables';
+// 3. 載入 Bootstrap 自定義的方法
+@import 'bootstrap/scss/bootstrap';
+
+// 透過 main.js 匯入
