@@ -11,7 +11,7 @@ export default defineConfig({
       include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue']
     })
   ],
-  base: '/Hex2023-vue-homework/vite-template-week6/',
+  base: '/Hex2023-vue-homework/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
